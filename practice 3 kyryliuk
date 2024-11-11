@@ -1,0 +1,67 @@
+class KseStack:
+    def __init__(self):
+        self._stack = []
+
+    def push(self, data):
+        self._stack.append(data)
+
+    def pop(self):
+        if self.is_empty():
+            return None
+        last = self.peak()
+        self._stack.pop()
+        return last
+
+    def size(self):
+        return len(self._stack)
+
+    def peak(self):
+        if self.is_empty():
+            return None
+        return self._stack[-1]
+
+    def is_empty(self):
+        return self.size() == 0
+
+    def __str__(self):
+        return "Here is our stack -->" + str(self._stack)
+
+Stack = KseStack()
+
+Stack.push("Artem")
+Stack.push("Slava")
+Stack.push("Maria")
+print(Stack.size())
+print(Stack.is_empty())
+print(Stack.peak())
+
+print()
+
+Stack.pop()
+print(Stack.pop())
+print(Stack.size())
+print(Stack.is_empty())
+Stack.push("Bohdan")
+
+print(Stack)
+print(str(Stack))
+
+Stack.pop()
+Stack.pop()
+Stack.pop()
+Stack.pop()
+Stack.pop()
+Stack.pop()
+print (Stack.is_empty())
+print (Stack.size())
+print(Stack)
+print(Stack.peak())
+
+Stack.push("Artem")
+Stack.push(5)
+Stack.push(False)
+Stack.push(None)
+Stack.push(KseStack())
+Stack.push(True)
+Stack.push("🎀")
+print(Stack)
